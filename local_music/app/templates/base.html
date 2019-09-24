@@ -1,0 +1,27 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Music from Local Artists</title>
+        {% else %}
+        <title>Welcome to Music App</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>Music Artists:
+            <a href="{{ url_for('index') }}">Main Page</a>;
+            <a href="{{ url_for('artists') }}">List of Artists</a>;
+            <a href="{{ url_for('new_artist') }}">New Artists</a>
+        </div>
+        <hr>
+        {%  with messages = get_flashed_messages() %}
+        {%  if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

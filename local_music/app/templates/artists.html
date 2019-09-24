@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>List of Local Artists</h1>
+    {% for artist in artists %}
+    <div><a href="/artist">{{ artist }}</a><br><br></div>
+    {% endfor %}
+{% endblock %}
